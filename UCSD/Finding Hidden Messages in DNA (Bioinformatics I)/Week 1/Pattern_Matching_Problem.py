@@ -15,7 +15,7 @@ def Pattern_Matching_Problem(Genome,Pattern):
 
 if __name__ == '__main__':
 # =============================================================================
-#     with open("dataset_Pattern_Matching_Problem.txt",'r') as f:
+#     with open("dataset_3_5.txt",'r') as f:
 #         string = f.readlines()
 #         Pattern = string[0][:-1]
 #         Genome = string[1][:-1]
@@ -28,9 +28,11 @@ if __name__ == '__main__':
         string = f.readlines()
         Pattern = "CTTGATCAT"
         Genome = string[0][:-1]
+        
         PM_result = Pattern_Matching_Problem(Genome,Pattern)
         with open("Vibrio_cholerae_result.txt",'w') as g:
             
             for i in PM_result:
+                print(i,end = " ")
                 g.write(str(i)+" ")
                 

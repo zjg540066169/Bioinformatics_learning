@@ -19,7 +19,7 @@ def Clumps_Find_Problem(Genome, k_mer, clump_length, occur_frequent):
         Frequent_Dict,Frequent_Patterns,init = Frequent_Words_fast(text, k_mer,  occur_frequent,Frequent_Dict,Frequent_Patterns, init)
         Clumps = Clumps.union(Frequent_Patterns)
         #Frequent_Patterns_Num += len(Frequent_Patterns)
-    return len(Clumps)
+    return Clumps
         
 
 
@@ -48,23 +48,23 @@ def Frequent_Words_fast(Text, k_mer, occur_frequent,Frequent_Dict,Frequent_Patte
     return  Frequent_Dict,Frequent_Patterns,init
 
 if __name__ == '__main__':
-# =============================================================================
-#     with open("dataset_Clumps_Find_Problem.txt",'r') as f:
-#         string = f.readlines()
-#         Genome = string[0][:-1]
-#         number = string[1][:-1].split(' ')
-#         
-#         k_mer = int(number[0])
-#         clump_length = int(number[1])
-#         occur_frequent = int(number[2])
-#         #print(k_mer, clump_length, occur_frequent)
-#         print(Clumps_Find_Problem(Genome, k_mer, clump_length, occur_frequent))
-# 
-# =============================================================================
-
-    with open("E_coli.txt",'r') as f:
+    with open("dataset_4_5.txt",'r') as f:
         string = f.readlines()
         Genome = string[0][:-1]
+        number = string[1][:-1].split(' ')
+        
+        k_mer = int(number[0])
+        clump_length = int(number[1])
+        occur_frequent = int(number[2])
+        #print(k_mer, clump_length, occur_frequent)
+        print(Clumps_Find_Problem(Genome, k_mer, clump_length, occur_frequent))
+
+
+# =============================================================================
+#     with open("E_coli.txt",'r') as f:
+#         string = f.readlines()
+#         Genome = string[0][:-1]
+# =============================================================================
         
         
         k_mer = 9

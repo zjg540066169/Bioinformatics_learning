@@ -42,33 +42,18 @@ def Frequent_Words(Text, k):
 
 
 
-def Frequent_Words_fast(Text, k_mer,Frequent_Dict = {},Frequent_Patterns = set()):#, init):
-    
-    
-    Frequent_Patterns_Num = 0
-
-    
-    if Frequent_Dict == {}:
-        for index in range(len(Text) - k_mer + 1):
-            Current_Pattern_Count = Frequent_Dict.get(Text[index:index+k_mer],0) + 1
-            Frequent_Dict[Text[index:index+k_mer]] = Current_Pattern_Count
-            if Current_Pattern_Count >= Frequent_Patterns_Num:
-                Frequent_Patterns_Num = Current_Pattern_Count
-                Frequent_Patterns.add(Text[index:index+k_mer])
-    elif Frequent_Dict != {}:
-       # Frequent_Dict[init + Text[0:k_mer-1]] -= 1
-        Frequent_Dict[Text[1-k_mer:]] = Frequent_Dict.get(Text[1-k_mer:],0) + 1
-        if Frequent_Dict[Text[1-k_mer:]] >= Frequent_Patterns_Num:
-            Frequent_Patterns.add(Frequent_Dict[Text[1-k_mer:]])
-            Frequent_Patterns_Num = Frequent_Dict[Text[1-k_mer:]]
-    
-    return  Frequent_Patterns
 
 
 if __name__ =='__main__':
-    with open("dataset_Frequent_Words.txt",'r') as f:
+    with open("dataset_2_10.txt",'r') as f:
         string = f.readlines()
         
         Text = string[0][:-1]
         k = int(string[1][:-1])
-        print(Frequent_Words_fast(Text,k))
+        a = Frequent_Words(Text,k)
+        for i in a:
+            print(i,end = ' ')
+        
+# =============================================================================
+#     print(Frequent_Words('CGCCTAAATAGCCTCGCGGAGCCTTATGTCATACTCGTCCT',3))
+# =============================================================================

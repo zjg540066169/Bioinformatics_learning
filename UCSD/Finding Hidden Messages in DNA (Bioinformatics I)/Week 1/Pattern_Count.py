@@ -27,9 +27,10 @@ def Pattern_Count(Text, Pattern):
     return count
 
 if __name__ == "__main__":
-    with open("dataset_Pattern_Count.txt",'r') as f:
+    with open("dataset_2_7.txt",'r') as f:
         string = f.readlines()
         Text = string[0][:-1]
         Pattern = string[1][:-1]
         print(Pattern_Count(Text,Pattern))
         
+    #print(Pattern_Count('CGCGATACGTTACATACATGATAGACCGCGCGCGATCATATCGCGATTATC', 'CGCG'))

@@ -25,8 +25,10 @@ def Reverse_Complement_Problem(string):
     return Reverse_Complement_String
 
 if __name__ == '__main__':
-    with open("dataset_Reverse_Compliment_Problem.txt",'r') as f:
+    with open("dataset_3_2.txt",'r') as f:
         string = f.readlines()[0]
         
         
         print(Reverse_Complement_Problem(string))
+
+    #print(Reverse_Complement_Problem('CCAGATC'))

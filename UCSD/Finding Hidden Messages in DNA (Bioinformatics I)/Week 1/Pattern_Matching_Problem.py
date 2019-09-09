@@ -1,29 +1,36 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Oct 11 19:37:38 2018
+Created on Mon Sep  9 00:43:09 2019
 
-@author: wang
+@author: jungangzou
 """
 
-def Read(path):
-    with open(path,'r') as f:
-        pattern = f.readline().replace("\n","")
-        genome = f.readline().replace("\n","")
-        return genome,pattern
-    
-def PatternMatchingProblem(pattern,genome):
-    count = []
-    for i in range(len(genome) - len(pattern) + 1):
-        if genome[i:i+len(pattern)] == pattern:
-            count.append(i)
-    return count
-
-def writeList(path,lis):
-    with open(path,'w') as f:
-        for i in lis:
-            f.write(str(i)+" ")
+def Pattern_Matching_Problem(Genome,Pattern):
+    Position_Array = []
+    for i in range(len(Genome) - len(Pattern) + 1):
+        if Genome[i : i + len(Pattern)] == Pattern:
+            Position_Array.append(i)
+    return Position_Array
 
 if __name__ == '__main__':
-    path = "Vibrio_cholerae.txt"
-    a = (PatternMatchingProblem("AA","AAACATAGGATCAAC"))
-    print(a)
+# =============================================================================
+#     with open("dataset_Pattern_Matching_Problem.txt",'r') as f:
+#         string = f.readlines()
+#         Pattern = string[0][:-1]
+#         Genome = string[1][:-1]
+#         for i in Pattern_Matching_Problem(Genome,Pattern):
+#             print(i,end = ' ')
+# =============================================================================
+            
+            
+    with open("Vibrio_cholerae.txt",'r') as f:
+        string = f.readlines()
+        Pattern = "CTTGATCAT"
+        Genome = string[0][:-1]
+        PM_result = Pattern_Matching_Problem(Genome,Pattern)
+        with open("Vibrio_cholerae_result.txt",'w') as g:
+            
+            for i in PM_result:
+                g.write(str(i)+" ")
+                

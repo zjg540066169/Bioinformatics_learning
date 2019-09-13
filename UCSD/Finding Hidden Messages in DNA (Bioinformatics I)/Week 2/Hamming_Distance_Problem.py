@@ -19,6 +19,8 @@ if __name__ == '__main__':
     with open("dataset_9_3.txt",'r') as f:
         string = f.readlines()
         print(string)
-        string1 = string[0][:-1]
-        string2 = string[1][:-1]
+        string1 = 'CTTGAAGTGGACCTCTAGTTCCTCTACAAAGAACAGGTTGACCTGTCGCGAAG'
+
+
+        string2 = "ATGCCTTACCTAGATGCAATGACGGACGTATTCCTTTTGCCTCAACGGCTCCT"
         print(Hamming_Distance_Problem(string1,string2))

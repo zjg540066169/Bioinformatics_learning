@@ -21,7 +21,7 @@ def Skew_Count(strand):
 
 
 if __name__ == '__main__':
-    result = Skew_Count("TAAAGACTGCCGAGAGGCCAACACGAGTGCTAGAACGAGGGGCGTAAACGCGGGTCCGAT")
+    result = Skew_Count("CATTCCAGTACTTCGATGATGGCGTGAAGA")
     plt.plot(np.arange(len(result)),result)
     plt.show()
     for i in result:

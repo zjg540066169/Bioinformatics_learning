@@ -15,8 +15,9 @@ Input: Strings Pattern and Text as well as an integer d.
 Output: Countd(Text, Pattern).
 @author: jungangzou
 """
+from Hamming_Distance_Problem import Hamming_Distance_Problem
 
-def pproximate_Pattern_Count(Text, Pattern, d):
+def Approximate_Pattern_Count(Text, Pattern, d):
     start_position_array = []
     for i in range(len(Text) - len(Pattern) + 1):
         if Hamming_Distance_Problem(Text[i:i+len(Pattern)] , Pattern) <= d :
@@ -24,4 +25,4 @@ def pproximate_Pattern_Count(Text, Pattern, d):
     return len(start_position_array)
 
 if __name__ == '__main__':
-    
+    print(Approximate_Pattern_Count('TACGCATTACAAAGCACA', 'AA',1))

@@ -30,6 +30,6 @@ if __name__ == '__main__':
     with open("dataset_7_6.txt",'r') as f:
         string = f.readlines()[0][:-1]
         #print(string)
-        print(Minimum_Skew_Problem(string))
+        print(Minimum_Skew_Problem("CATTCCAGTACTTCGATGATGGCGTGAAGA"))
         
     

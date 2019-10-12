@@ -7,7 +7,6 @@ Calculate how many mismatches do two length-equal strings have?
 
 @author: jungangzou
 """
-from Hamming_Distance_Problem import Hamming_Distance_Problem
 
 def Hamming_Distance_Problem(string1,string2):
     hamming_distance = 0

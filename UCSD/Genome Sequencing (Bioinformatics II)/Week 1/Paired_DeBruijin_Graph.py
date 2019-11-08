@@ -22,6 +22,8 @@ class paired_debruijn_graph(debruijn_graph):
             #print(edge, end = ",")
             start_ID.append(edge[:k])
             end_ID.append(edge[-k:])
+        print(paired_edge, k)
+        print(start_ID, end_ID)
         
         start_ID = "|".join(start_ID)
         end_ID = "|".join(end_ID)
@@ -67,14 +69,18 @@ if __name__ == "__main__":
         string = f.readlines()
         for i in range(len(string)):
             string[i] = string[i].replace("\n", "").replace("(","").replace(")","")
+        while "" in string:
+            string.remove("")
         
             
 
     g = paired_debruijn_graph()
     for i in range(len(string)):
+        
         k_mer = string[i]
-        g.add_direct_edge(k_mer, len(k_mer)-1)
-    path = g.eulerian_cycle_search("ACC|ATA")
+        #print(k_mer)
+        g.add_direct_edge(k_mer, 3 - 1)
+    path = g.eulerian_path_search()
     print(g.string_reconstruction_paired(path, 2, 1))
 
     

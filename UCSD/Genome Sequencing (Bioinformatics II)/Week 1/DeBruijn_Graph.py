@@ -159,12 +159,13 @@ class debruijn_graph(object):
         for i in self.node_list:
            # print(i.get_ID(),"in_degree",i.get_in_degree(), end = " | ")
            # print(i.get_ID(),"end_degree",i.get_out_degree())
-            if i.get_in_degree() - i.get_out_degree() == -1:
+            if i.get_in_degree() == 0 and i.get_in_degree() - i.get_out_degree() == -1:
                 #print(i.get_ID(),"in_degree",i.get_in_degree)
                 init_point = i.get_ID()
-            if i.get_in_degree() - i.get_out_degree() == 1:
+            if i.get_out_degree() == 0 and i.get_in_degree() - i.get_out_degree() == 1:
                 #print(i.get_ID(),"end_degree",i.get_end_degree)
                 end_point = i.get_ID()
+        print(init_point, end_point)
         remain_edges = self.get_all_edges().copy()
         remain_edges[end_point].append(init_point)
         path_node_list = []
@@ -326,10 +327,13 @@ if __name__ == "__main__":
     with open("dataset_6207_2 01.34.51.txt", "r") as f:
         string = f.readlines()
         for i in range(len(string)):
+        
             string[i] = string[i].replace("\n", "")
-
+        while "" in string:
+            string.remove("")
     for i in string:
         g.add_direct_edge(i, len(i) - 1)
+    print(string_spelled_by_a_genome_path_problem(g.eulerian_path_search()))
     #with open("dataset_200_8_result.txt", "w") as w:
     #    for pattern, adjacencies in g.get_all_edges().items():
     #        if len(adjacencies) > 0:
